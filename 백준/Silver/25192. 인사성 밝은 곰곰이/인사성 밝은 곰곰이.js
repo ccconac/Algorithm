@@ -8,10 +8,10 @@ for (let i = 0; i < N; i++) {
   if (input[i] === "ENTER") {
     count += set.size;
     set.clear();
-    continue;
+  } else {
+    set.add(input[i]);
+    if (i === input.length - 1) count += set.size;
   }
-  set.add(input[i]);
-  if (i === input.length - 1) count += set.size;
 }
 
 console.log(count);
