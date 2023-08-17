@@ -1,59 +1,50 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.prev = null;
-    this.next = null;
-  }
-}
-
-class LinkedList {
+class Queue {
   constructor() {
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
+    this.arr = {};
+    this.front = 0;
+    this.rear = 0;
   }
 
-  push(value) {
-    const node = new Node(value);
+  enqueue(X) {
+    this.arr[this.rear] = X;
+    this.rear += 1;
+  }
 
-    if (!this.head) this.head = node;
-    else {
-      this.tail.next = node;
-      node.prev = this.tail;
-    }
-    this.tail = node;
-    this.length++;
+  dequeue() {
+    if (this.empty()) return -1;
 
-    return node;
+    const temp = this.arr[this.front];
+    delete this.arr[this.front];
+    this.front += 1;
+
+    return temp;
+  }
+
+  size() {
+    return this.rear - this.front;
+  }
+
+  empty() {
+    if (this.size() === 0) return 1;
+    else return 0;
   }
 
   getHead() {
-    return this.head.value;
-  }
-
-  removeHead() {
-    this.head = this.head.next;
-    this.head.prev = null;
-    this.length--;
-  }
-
-  getSize() {
-    return this.length;
+    return this.arr[this.front];
   }
 }
 
 const input = require("fs").readFileSync(0).toString();
 
 const N = Number(input);
-const list = new LinkedList();
+const queue = new Queue();
 
-for (let i = 1; i <= N; i++) list.push(i);
+for (let i = 1; i <= N; i++) queue.enqueue(i);
 
 for (let i = 0; i < N; i++) {
-  if (list.getSize() < 2) break;
-  list.removeHead();
-  list.push(list.getHead());
-  list.removeHead();
+  if (queue.size() < 2) break;
+  queue.dequeue();
+  queue.enqueue(queue.dequeue());
 }
 
-console.log(list.getHead());
+console.log(queue.getHead());
