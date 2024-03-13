@@ -1,26 +1,25 @@
-const input = require("fs").readFileSync(0).toString().split("\n").map(Number);
+const input = require('fs').readFileSync(0).toString().trim().split('\n').map(Number);
 
-const N = input.shift();
+const n = input.shift();
 const stack = [];
-let answer = "";
-let count = 1;
+const answer = [];
 
-for (let i = 0; i < N; i++) {
-  const num = input.shift();
+let currentNumber = 1;
+let sequence = true;
 
-  while (count <= num) {
-    stack.push(count++);
-    answer += "+\n";
+input.forEach((sequenceNumber) => {
+  while (currentNumber <= sequenceNumber) {
+    stack.push(currentNumber);
+    answer.push('+');
+
+    currentNumber += 1;
   }
 
-  const popNum = stack.pop();
+  if (sequenceNumber === stack[stack.length - 1]) {
+    stack.pop();
+    answer.push('-');
+  } else sequence = false;
+});
 
-  if (popNum !== num) {
-    answer = "NO";
-    break;
-  }
-
-  answer += "-\n";
-}
-
-answer === "NO" ? console.log(answer) : console.log(answer.trim());
+if (sequence) console.log(answer.join('\n'));
+else console.log('NO');
