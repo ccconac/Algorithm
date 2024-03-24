@@ -27,7 +27,7 @@ for (let i = 0; i < T * 3; i += 3) {
   }
 
   if (isError) console.log('error');
-  if (!isError) {
+  else {
     const result = isReverse ? arr.slice(start, end).reverse() : arr.slice(start, end);
     console.log(JSON.stringify(result));
   }
