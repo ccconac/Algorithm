@@ -9,18 +9,15 @@ let input = [];
 rl.on('line', function (line) {
     input = [line];
 }).on('close',function(){
-    str = input[0];
-    const answer = [];
+    str = input[0].split('');
     
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === str[i].toUpperCase()) {
-            answer.push(str[i].toLowerCase());
+    str.forEach((value, index) => {
+        if (value === value.toUpperCase()) {
+            str[index] = value.toLowerCase();
+        } else {
+            str[index] = value.toUpperCase();
         }
-        
-        if (str[i] === str[i].toLowerCase()) {
-            answer.push(str[i].toUpperCase());
-        }
-    }
+    });
     
-    console.log(answer.join(''));
+    console.log(str.join(''));
 });
