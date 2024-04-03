@@ -13,7 +13,5 @@ rl.on('line', function (line) {
     str = input[0];
     n = Number(input[1]);
     
-    for (let i = 0; i < n; i++) answer.push(str);
-    
-    console.log(answer.join(''));
+    console.log(str.repeat(n));
 });
