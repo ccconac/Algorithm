@@ -1,9 +1,3 @@
-function solution(start_num, end_num) {
-    const answer = [];
-    
-    for (let i = start_num; i < end_num + 1; i++) {
-        answer.push(i);
-    }
-        
-    return answer;
+function solution(start, end) {
+  return new Array(end - start + 1).fill().map((_, i) => i + start);
 }
