@@ -1,4 +1,6 @@
 function solution(num_list) {
-    const [a, b] = [...num_list].reverse();
-    return [...num_list, a > b ? (a - b) : a * 2];
+    const [sec, last] = num_list.slice(-2);
+    last > sec ? num_list.push(last - sec) : num_list.push(last * 2);
+   
+    return num_list;
 }
