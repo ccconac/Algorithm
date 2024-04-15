@@ -1,11 +1,4 @@
-function solution(s) {
-    const answer = [];
-    
-    for (character of s) {
-        if (s.indexOf(character) === s.lastIndexOf(character)) {
-            answer.push(character);
-        }   
-    }
-    
-    return answer.sort().join('');
+const solution = (s) => {
+    const character = [...s].filter(c => s.match(new RegExp(c, 'g')).length === 1);
+    return character.sort().join('');
 }
