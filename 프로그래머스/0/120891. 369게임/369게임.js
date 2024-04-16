@@ -1,5 +1,3 @@
 function solution(order) {
-    const orderArray = order.toString().split('');
-    
-    return orderArray.filter(number => number === '3' || number === '6' || number === '9').length;
+    return Array.from(order.toString()).filter(n => ['3', '6', '9'].includes(n)).length;
 }
