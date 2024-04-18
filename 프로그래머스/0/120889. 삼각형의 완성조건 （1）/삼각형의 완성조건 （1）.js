@@ -1,6 +1,5 @@
 function solution(sides) {
-    const longSide = sides.sort().pop();
-    const sideSum = sides.reduce((acc, curr) => acc + curr, 0);
+    sides = sides.sort((a, b) => a - b);
     
-    return longSide < sideSum ? 1 : 2;
+    return sides[0] + sides[1] > sides[2] ? 1 : 2;
 }
