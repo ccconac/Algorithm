@@ -1,3 +1,3 @@
 function solution(a, b) {
-    return (BigInt(a) + BigInt(b)).toString();
+    return String(BigInt(a) + BigInt(b));
 }
