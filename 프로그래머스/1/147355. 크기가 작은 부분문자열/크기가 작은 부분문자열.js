@@ -1,16 +1,10 @@
 function solution(t, p) {
-    const arr = [];
-    let result = 0;
+    let count = 0;
     
-    for (let i = 0; i < t.length; i++) {
-        arr.push(t.slice(i, i + p.length));
+    for (let i = 0; i <= t.length - p.length; i++) {
+        let value = t.slice(i, i + p.length);
+        if (+p >= +value) count += 1;
     }
     
-    const numbers = arr.filter(number => number.length === p.length);
-    
-    numbers.forEach(number => {
-        if (Number(number) <= Number(p)) result += 1;
-    })
-    
-    return result;
+    return count;
 }
