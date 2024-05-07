@@ -1,11 +1,9 @@
 function solution(rsp) {
-    let result = '';
+    const rspArray = {
+        2: 0,
+        0: 5,
+        5: 2
+    };
     
-    [...rsp].forEach(value => {
-        if (value === '2') result += '0';
-        if (value === '0') result += '5';
-        if (value === '5') result += '2';
-    })
-    
-    return result;
+    return [...rsp].map(value => rspArray[value]).join('');
 }
