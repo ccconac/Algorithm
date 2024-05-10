@@ -1,6 +1,3 @@
-function solution(start, end_num) {
-    const result = [];
-    for (let i = start; i >= end_num; i--) result.push(i);
-    
-    return result;
+function solution(start, end) {
+    return Array.from({length: start - end + 1}, (_, index) => start - index);
 }
