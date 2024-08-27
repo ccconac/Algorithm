@@ -1,15 +1,12 @@
-const input = require('fs').readFileSync(0).toString().split('\n');
+const Solution = (input) => {
+  const answer = new Array(10).fill(0);
+  const calResult = String(input[0] * input[1] * input[2]).split('');
 
-const num = String(input[0] * input[1] * input[2]);
+  calResult.forEach((number) => answer[number]++);
 
-for (let i = 0; i <= 9; i++) {
-    let count = 0;
-    
-    for (let j = 0; j < num.length; j++) {
-        if (Number(num[j]) === i) {
-            count++;
-        }
-    }
-    
-    console.log(count);
-}
+  console.log(answer.join('\n'));
+};
+
+const input = require('fs').readFileSync(0).toString().split('\n').map(Number);
+
+Solution(input);
