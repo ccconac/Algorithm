@@ -1,6 +1,8 @@
 function solution(s) {
     const stack = [];
     
+    if (s.length % 2) return 0;
+    
     for (let i = 0; i < s.length; i++) {
         const char = s.charAt(i);
         
