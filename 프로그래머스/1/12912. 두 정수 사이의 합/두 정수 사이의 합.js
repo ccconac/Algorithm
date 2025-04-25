@@ -1,14 +1,9 @@
 function solution(a, b) {
     let answer = 0;
-    let temp = 0;
     
-    if (a > b) {
-        temp = a;
-        a = b;
-        b = temp;
+    for (let i = Math.min(a, b); i <= Math.max(a, b); i++) {
+        answer += i;
     }
-    
-    for (let i = a; i <= b; i++) answer += i;
     
     return answer;
 }
