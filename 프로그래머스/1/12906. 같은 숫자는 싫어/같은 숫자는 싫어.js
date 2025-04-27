@@ -4,8 +4,7 @@ function solution(arr) {
     const answer = [];
     
     for (let i = 0; i < arr.length; i += 1) {
-        if (arr[i] === arr[i + 1]) continue;
-        answer.push(arr[i]);
+        if (arr[i] !== arr[i + 1]) answer.push(arr[i]);
     }
     
     // 2. 원소들의 순서 유지해야 함
