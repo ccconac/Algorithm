@@ -1,3 +1,5 @@
 function solution(n) {
-    return String(n).split('').reduce((acc, curr) => acc + curr * 1, 0);
+    const numbers = n.toString().split('').map(value => Number(value));
+    
+    return numbers.reduce((acc, curr) => acc + curr, 0);
 }
