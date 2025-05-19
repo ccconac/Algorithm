@@ -3,8 +3,8 @@ function solution(numbers) {
   const sumArray = [];
 
   for (let i = 0; i < n; i += 1) {
-    for (let j = 0; j < n; j += 1) {
-      if (i !== j) sumArray.push(numbers[i] + numbers[j]);
+    for (let j = i + 1; j < n; j += 1) {
+       sumArray.push(numbers[i] + numbers[j]);
     }
   }
 
