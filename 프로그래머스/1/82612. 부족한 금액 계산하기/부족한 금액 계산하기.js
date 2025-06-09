@@ -11,5 +11,5 @@ function solution(price, money, count) {
         sum += price * i; 
     }
     
-    return money - sum > 0 ? 0 : Math.abs(money - sum);
+    return money > sum ? 0 : sum - money;
 }
