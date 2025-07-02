@@ -26,9 +26,6 @@ function solution(maps) {
                     queue.push([row, column]);
                     dist[row][column] = dist[here[0]][here[1]] + 1;
                 }
-                
-                
-            
             }
         }
         
