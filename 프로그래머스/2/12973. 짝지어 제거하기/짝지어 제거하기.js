@@ -1,13 +1,12 @@
 function solution(s) {
     const stack = [];
+    const n = s.length;
     
-    if (s.length % 2) return 0;
+    if (n % 2) return 0;
     
-    for (let i = 0; i < s.length; i++) {
-        const char = s.charAt(i);
-        
-        if (char === stack[stack.length - 1]) stack.pop();
-        else stack.push(char);
+    for (const c of s) {
+        if (c === stack[stack.length - 1]) stack.pop();
+        else stack.push(c);
     }
     
     return stack.length ? 0 : 1;
