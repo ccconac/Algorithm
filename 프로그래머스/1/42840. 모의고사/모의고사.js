@@ -12,8 +12,8 @@ function solution(answers) {
   });
 
   const maxScore = Math.max(...scores);
-
   const answer = [];
+    
   scores.forEach((score, index) => {
     if (score === maxScore) answer.push(index + 1);
   });
