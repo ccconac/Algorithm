@@ -1,14 +1,15 @@
 function solution(numbers) {
-  const n = numbers.length;
-  const sumArray = [];
-
-  for (let i = 0; i < n; i += 1) {
-    for (let j = i + 1; j < n; j += 1) {
-       sumArray.push(numbers[i] + numbers[j]);
+    // 서로 다른 인덱스에 있는 두 개의 수를 뽑아 더해 만들 수 있는 모든 수 
+    
+    const sums = [];
+    
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = i + 1; j < numbers.length; j++) {
+            sums.push(numbers[i] + numbers[j]);
+        }
     }
-  }
-
-  const uniqueArray = [...new Set(sumArray)];
-
-  return uniqueArray.sort((a, b) => a - b);
+    
+    const answer = [...new Set(sums)].sort((a, b) => a - b);
+    
+    return answer;
 }
