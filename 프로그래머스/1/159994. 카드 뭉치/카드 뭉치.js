@@ -3,10 +3,10 @@ function solution(cards1, cards2, goal) {
     let k = 0;
     
     for (let i = 0; i < goal.length; i++) {
-        if (goal[i] === cards1[j]) j++;
-        else if (goal[i] === cards2[k]) k++;
-        else return "No"
+        if (cards1[j] === goal[i]) j++;
+        else if (cards2[k] === goal[i]) k++;
+        else return 'No';
     }
     
-    return "Yes";
+    return 'Yes';
 }
