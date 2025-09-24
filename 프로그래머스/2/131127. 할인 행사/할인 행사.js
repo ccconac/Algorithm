@@ -1,38 +1,22 @@
-function isShallowEqual(object1, object2) {
-    const objKeys1 = Object.keys(object1);
-    const objKeys2 = Object.keys(object2);
-    
-    if (objKeys1.length !== objKeys2.length) return false;
-    
-    for (const key of objKeys1) {
-        const value1 = object1[key];
-        const value2 = object2[key];
+function isMatch(want, products, number) {
+    const map = new Map();
         
-        if (value1 !== value2) return false;
+    products.forEach(product => map.set(product, (map.get(product) || 0) + 1));
+        
+    for (let i = 0; i < want.length; i++) {
+        if (map.get(want[i]) !== number[i]) return false;
     }
-    
+        
     return true;
 }
 
 function solution(want, number, discount) {
-    const wantObj = {};
-    
-    for (let i = 0; i < want.length; i++) {
-        wantObj[want[i]] = number[i];
-    }
-    
     let answer = 0;
     
     for (let i = 0; i <= discount.length - 10; i++) {
-        const discount10d = {};
+        const products = discount.slice(i, i + 10);
         
-        for (let j = i; j < i + 10; j++) {
-            if (wantObj[discount[j]]) {
-                discount10d[discount[j]] = (discount10d[discount[j]] || 0) + 1;
-            }
-        }
-        
-        if (isShallowEqual(discount10d, wantObj)) answer += 1;
+        if (isMatch(want, products, number)) answer += 1;
     }
     
     return answer;
