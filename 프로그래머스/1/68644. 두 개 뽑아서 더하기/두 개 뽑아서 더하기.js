@@ -1,6 +1,5 @@
 function solution(numbers) {
-    // 서로 다른 인덱스에 있는 두 개의 수를 뽑아 더해 만들 수 있는 모든 수 
-    
+    // 두 개의 수를 뽑아 더해 만들 수 있는 모든 수
     const sums = [];
     
     for (let i = 0; i < numbers.length; i++) {
@@ -9,7 +8,7 @@ function solution(numbers) {
         }
     }
     
-    const answer = [...new Set(sums)].sort((a, b) => a - b);
+    const answer = [... new Set(sums)].sort((a, b) => a - b);
     
     return answer;
 }
