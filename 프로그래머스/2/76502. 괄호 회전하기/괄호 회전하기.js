@@ -3,8 +3,8 @@ function solution(s) {
     const mapping = {
         ')': '(',
         '}': '{',
-        ']': '['
-    };
+        ']': '[',
+    }
     
     let answer = 0;
     
@@ -19,14 +19,15 @@ function solution(s) {
             else {
                 const top = stack.pop();
                 
-                if (top !== mapping[c]) {
+                if (mapping[c] !== top) {
                     isCorrect = false;
                     break;
                 }
             }
         }
+        
         if (isCorrect && !stack.length) answer += 1;
     }
-    
+
     return answer;
 }
