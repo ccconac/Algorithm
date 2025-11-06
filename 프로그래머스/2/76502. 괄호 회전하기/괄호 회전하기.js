@@ -3,8 +3,8 @@ function solution(s) {
     const mapping = {
         ')': '(',
         '}': '{',
-        ']': '[',
-    }
+        ']': '['
+    };
     
     let answer = 0;
     
@@ -15,7 +15,7 @@ function solution(s) {
         for (let j = 0; j < n; j++) {
             const c = s[(i + j) % n];
             
-            if (c === '[' || c === '{' || c === '(') stack.push(c);
+            if (c === '(' || c === '{' || c === '[') stack.push(c);
             else {
                 const top = stack.pop();
                 
@@ -28,6 +28,6 @@ function solution(s) {
         
         if (isCorrect && !stack.length) answer += 1;
     }
-
+    
     return answer;
 }
