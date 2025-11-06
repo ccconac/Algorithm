@@ -1,7 +1,7 @@
 function solution(board, moves) {
     // board 변환
     const lanes = [...Array(board[0].length)].map(() => []);
-    
+
     for (let i = board.length - 1; i >= 0; i--) {
         for (let j = 0; j < board[0].length; j++) {
             if (board[i][j]) lanes[j].push(board[i][j]);
