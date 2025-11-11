@@ -1,11 +1,9 @@
 N = int(input())
-arr = [0] * (N + 1)
+clap = ['3', '6', '9']
 
 for i in range(1, N + 1):
-    temp = str(i)
-    for j in range(0, len(temp)):
-        if int(temp[j]) != 1 and int(temp[j]) != 0 and int(temp[j]) % 3 == 0:
-            arr[int(temp)] += 1
-    if arr[i]: print('-' * arr[i], end=' ')
-    else: print(i, end=' ')
-        
+    count = 0
+    for j in str(i):
+        if j in clap: count += 1
+    if count: i = '-' * count
+    print(i, end=' ')
