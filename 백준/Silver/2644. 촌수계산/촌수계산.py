@@ -1,8 +1,10 @@
 def dfs(node, count):
+    global answer
+
     visited[node] = 1
 
     if node == target2:
-        answer.append(count)
+        answer = count
         return
 
     for next in graph[node]:
@@ -15,7 +17,7 @@ M = int(input())
 
 graph = [[] for _ in range(N + 1)]
 visited = [0] * (N + 1)
-answer = []
+answer = -1
 
 for _ in range(M):
     start, end = map(int, input().split())
@@ -24,7 +26,4 @@ for _ in range(M):
 
 dfs(target1, 0)
 
-if not answer:
-    print(-1)
-else:
-    print(answer[0])
+print(answer)
