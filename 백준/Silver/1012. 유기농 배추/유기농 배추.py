@@ -10,8 +10,7 @@ def bfs(x, y):
             nx = cx + dx
             ny = cy + dy
 
-            if 0 <= nx < N and 0 <= ny < M and farm[nx][ny] and not visited[nx][ny]:
-                farm[nx][ny] = 1
+            if 0 <= nx < M and 0 <= ny < N and farm[nx][ny] == 1 and not visited[nx][ny]:
                 visited[nx][ny] = 1
                 queue.append((nx, ny))
 
@@ -20,19 +19,19 @@ dir = [[-1, 0], [1, 0], [0, -1], [0, 1]]
 
 for _ in range(T):
     M, N, K = map(int, input().split())
-    farm = [[0] * M for _ in range(N)]
-    visited = [[0] * M for _ in range(N)]
+    farm = [[0] * N for _ in range(M)]
+    visited = [[0] * N for _ in range(M)]
+
+    for _ in range(K):
+        X, Y = map(int, input().split())
+        farm[X][Y] = 1
 
     answer = 0
 
-    for _ in range(K):
-        Y, X = map(int, input().split())
-        farm[X][Y] = 1
-
-    for i in range(N):
-        for j in range(M):
-            if farm[i][j] == 1 and not visited[i][j]:
-                bfs(i, j)
+    for row in range(M):
+        for col in range(N):
+            if farm[row][col] == 1 and not visited[row][col]:
+                bfs(row, col)
                 answer += 1
 
     print(answer)
