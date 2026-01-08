@@ -4,7 +4,7 @@ def dfs(x, y, h):
 
     while stack:
         x, y = stack.pop()
-        for dx, dy in dir:
+        for dx, dy in direction:
             nx = x + dx
             ny = y + dy
 
@@ -15,7 +15,7 @@ def dfs(x, y, h):
 N = int(input())
 zones = [list(map(int, input().split())) for _ in range(N)]
 
-dir = [[0, 1], [0, -1], [-1, 0], [1, 0]]
+direction = [[0, 1], [0, -1], [-1, 0], [1, 0]]
 max_height = max(max(row) for row in zones)
 result = 0
 
