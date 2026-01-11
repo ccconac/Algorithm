@@ -1,5 +1,4 @@
 const input = require("fs").readFileSync(0).toString().split("\n");
-
 const T = parseInt(input.shift());
 
 const factorial = (num) => {
