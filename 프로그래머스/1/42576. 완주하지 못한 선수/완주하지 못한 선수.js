@@ -1,16 +1,8 @@
 function solution(participant, completion) {
-    const obj = {};
+    participant.sort();
+    completion.sort();
     
-    for (const p of participant) {
-        if (obj[p]) obj[p] += 1;
-        else obj[p] = 1;
-    }
-    
-    for (const c of completion) {
-        obj[c] -= 1;
-    }
-    
-    for (const key in obj) {
-        if (obj[key]) return key;
+    for (let i = 0; i < participant.length; i++) {
+        if (participant[i] !== completion[i]) return participant[i];
     }
 }
